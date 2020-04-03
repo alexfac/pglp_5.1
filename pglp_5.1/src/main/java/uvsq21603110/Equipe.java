@@ -16,7 +16,8 @@ public abstract class Equipe {
     }
 
     public ArrayList<Groupe> getListGroup(){
-        ArrayList<Groupe> unmodifiableList = (ArrayList<Groupe>) Collections.unmodifiableList(listgroupe);
+        //ArrayList<Groupe> unmodifiableList = (ArrayList<Groupe>) Collections.unmodifiableList(listgroupe);
+        ArrayList<Groupe> unmodifiableList = listgroupe;
         return unmodifiableList;
     }
 }

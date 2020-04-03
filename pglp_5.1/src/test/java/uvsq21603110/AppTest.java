@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import java.io.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -50,4 +51,37 @@ public class AppTest
         g.add2Groupe(p);
         assertEquals(g.getListGroup().size() , 1);
     }
+
+    @Test
+    public void persoSerializable(){
+
+        Groupe g = new Groupe();
+        Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
+        g.add2Groupe(p);
+        assertEquals(g.getListGroup().size() , 1);
+
+        try(ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/file")))) {
+            out.writeObject(g);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try(ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/file")))){
+            Groupe g1 = (Groupe) in.readObject();
+            for(Personnel p1 : g1.getListGroup()){
+                System.out.println(p1.getNom());
+                System.out.println(p1.getPrenom());
+                System.out.println(p1.getFonction());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }

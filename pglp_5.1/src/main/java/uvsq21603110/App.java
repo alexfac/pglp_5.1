@@ -11,7 +11,6 @@ enum AppSingleton{
         g.add2Groupe(p);
         g.add2Groupe(p2);
         g.add2Groupe(p3);
-        System.out.println(g.getListGroup().size());
 
         iteratorAll ia = new iteratorAll(g);
         do{

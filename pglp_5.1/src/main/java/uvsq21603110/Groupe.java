@@ -1,10 +1,11 @@
 package uvsq21603110;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Groupe {
+public class Groupe implements Serializable {
 
     private List PersonnelList;
 
