@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public final class Personnel {
+public final class Personnel extends Equipe {
 
     private final String Nom;
     private final String Prenom;
@@ -64,5 +64,9 @@ public final class Personnel {
     }
     public LocalDate getNaissance(){
         return this.Naissance;
+    }
+
+    public String toStringPersonnel(){
+        return this.getNom() + this.getPrenom() + this.getFonction() + this.getNaissance();
     }
 }
