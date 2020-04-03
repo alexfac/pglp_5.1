@@ -83,5 +83,16 @@ public class AppTest
             e.printStackTrace();
         }
     }
-    
+
+    @Test
+    public void testDAOpersonnel(){
+
+        DAOFactory dao = new DAOFactory();
+        DAO daopersonnel = new DAOpersonnel();
+        Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
+        daopersonnel.create(p);
+        Personnel p1 = (Personnel) daopersonnel.find("peronnel");
+        assertEquals("Test", p1.getNom());
+    }
+
 }
