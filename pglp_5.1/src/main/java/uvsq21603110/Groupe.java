@@ -7,21 +7,20 @@ import java.util.List;
 
 public class Groupe implements Serializable {
 
-    private List PersonnelList;
+  private List PersonnelList;
 
-    public Groupe(){
+  public Groupe() {
 
-        this.PersonnelList = new ArrayList<Personnel>();
-    }
+    this.PersonnelList = new ArrayList<Personnel>();
+  }
 
-    public void add2Groupe(Personnel p){
+  public void add2Groupe(Personnel p) {
 
-        this.PersonnelList.add(p);
-    }
+    this.PersonnelList.add(p);
+  }
 
-    public List<Personnel> getListGroup(){
-        List<Personnel> unmodifiableList = Collections.unmodifiableList(PersonnelList);
-        return unmodifiableList;
-    }
-
+  public List<Personnel> getListGroup() {
+    List<Personnel> unmodifiableList = Collections.unmodifiableList(PersonnelList);
+    return unmodifiableList;
+  }
 }
