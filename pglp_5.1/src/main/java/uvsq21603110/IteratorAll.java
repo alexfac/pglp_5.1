@@ -28,7 +28,7 @@ public class IteratorAll implements Iterator {
   @Override
   public Personnel next() {
     Personnel P;
-    P = e.getListGroup().get(cmp);
+    P = e.getListPerso().get(cmp);
     cmp++;
     return P;
   }

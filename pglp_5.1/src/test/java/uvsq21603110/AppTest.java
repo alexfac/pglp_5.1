@@ -1,13 +1,12 @@
 package uvsq21603110;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.util.List;
+
+import static org.junit.Assert.*;
 
 /** Unit test for simple App. */
 public class AppTest {
@@ -47,7 +46,7 @@ public class AppTest {
     Groupe g = new Groupe();
     Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
     g.add2Groupe(p);
-    assertEquals(g.getListGroup().size(), 1);
+    assertEquals(g.getListPerso().size(), 1);
   }
 
   @Test
@@ -56,7 +55,7 @@ public class AppTest {
     Groupe g = new Groupe();
     Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
     g.add2Groupe(p);
-    assertEquals(g.getListGroup().size(), 1);
+    assertEquals(g.getListPerso().size(), 1);
 
     try (ObjectOutputStream out =
         new ObjectOutputStream(
@@ -74,7 +73,7 @@ public class AppTest {
             new BufferedInputStream(
                 new FileInputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/file")))) {
       Groupe g1 = (Groupe) in.readObject();
-      for (Personnel p1 : g1.getListGroup()) {
+      for (Personnel p1 : g1.getListPerso()) {
         System.out.println(p1.getNom());
         System.out.println(p1.getPrenom());
         System.out.println(p1.getFonction());
@@ -95,7 +94,19 @@ public class AppTest {
     DAO daopersonnel = new DAOpersonnel();
     Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
     daopersonnel.create(p);
-    Personnel p1 = (Personnel) daopersonnel.find("peronnel");
+    Personnel p1 = (Personnel) daopersonnel.find("personnel");
     assertEquals("Test", p1.getNom());
+  }
+
+  @Test
+  public void testDAOgroupe() {
+
+    DAOFactory dao = new DAOFactory();
+    DAO daogroupe = new DAOGroupe();
+    Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
+    Groupe g= new Groupe();
+    daogroupe.create(g);
+    Groupe g1 = (Groupe) daogroupe.find("personnel");
+    assertNotNull(g1.getListGroup());
   }
 }

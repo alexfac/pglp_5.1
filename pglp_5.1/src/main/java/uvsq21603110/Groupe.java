@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Groupe implements Serializable {
+public class Groupe extends Equipe implements Serializable {
 
   private List PersonnelList;
 
@@ -19,7 +19,7 @@ public class Groupe implements Serializable {
     this.PersonnelList.add(p);
   }
 
-  public List<Personnel> getListGroup() {
+  public List<Personnel> getListPerso() {
     List<Personnel> unmodifiableList = Collections.unmodifiableList(PersonnelList);
     return unmodifiableList;
   }
