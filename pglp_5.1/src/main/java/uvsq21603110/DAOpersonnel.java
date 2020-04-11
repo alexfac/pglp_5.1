@@ -8,7 +8,7 @@ public class DAOpersonnel implements DAO<Personnel> {
     try (ObjectOutputStream out =
         new ObjectOutputStream(
             new BufferedOutputStream(
-                new FileOutputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/perso")))) {
+                new FileOutputStream("perso")))) {
       out.writeObject(obj);
     } catch (FileNotFoundException e) {
       e.printStackTrace();
@@ -23,7 +23,7 @@ public class DAOpersonnel implements DAO<Personnel> {
 
     Personnel personnel = null;
     try (ObjectInputStream in =
-        new ObjectInputStream(new FileInputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/perso"))) {
+        new ObjectInputStream(new FileInputStream("perso"))) {
       personnel = (Personnel) in.readObject();
     } catch (FileNotFoundException e) {
       e.printStackTrace();

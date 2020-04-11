@@ -60,7 +60,7 @@ public class AppTest {
     try (ObjectOutputStream out =
         new ObjectOutputStream(
             new BufferedOutputStream(
-                new FileOutputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/file")))) {
+                new FileOutputStream("fileperso")))) {
       out.writeObject(g);
     } catch (FileNotFoundException e) {
       e.printStackTrace();
@@ -71,7 +71,7 @@ public class AppTest {
     try (ObjectInputStream in =
         new ObjectInputStream(
             new BufferedInputStream(
-                new FileInputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/file")))) {
+                new FileInputStream("fileperso")))) {
       Groupe g1 = (Groupe) in.readObject();
       for (Personnel p1 : g1.getListPerso()) {
         System.out.println(p1.getNom());

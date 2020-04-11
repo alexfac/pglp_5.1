@@ -8,7 +8,7 @@ public class DAOGroupe implements DAO<Groupe> {
         try (ObjectOutputStream out =
                      new ObjectOutputStream(
                              new BufferedOutputStream(
-                                     new FileOutputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/groupe")))) {
+                                     new FileOutputStream("groupe")))) {
             out.writeObject(obj);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -22,7 +22,7 @@ public class DAOGroupe implements DAO<Groupe> {
     public Groupe find(String id) {
         Groupe groupe = null;
         try (ObjectInputStream in =
-                     new ObjectInputStream(new FileInputStream("/home/alex/Bureau/M1/pglp/pglp_5.1/groupe"))) {
+                     new ObjectInputStream(new FileInputStream("groupe"))) {
             groupe = (Groupe) in.readObject();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
