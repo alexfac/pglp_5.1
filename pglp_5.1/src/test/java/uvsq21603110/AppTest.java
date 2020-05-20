@@ -58,9 +58,7 @@ public class AppTest {
     assertEquals(g.getListPerso().size(), 1);
 
     try (ObjectOutputStream out =
-        new ObjectOutputStream(
-            new BufferedOutputStream(
-                new FileOutputStream("fileperso")))) {
+        new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("fileperso")))) {
       out.writeObject(g);
     } catch (FileNotFoundException e) {
       e.printStackTrace();
@@ -69,9 +67,7 @@ public class AppTest {
     }
 
     try (ObjectInputStream in =
-        new ObjectInputStream(
-            new BufferedInputStream(
-                new FileInputStream("fileperso")))) {
+        new ObjectInputStream(new BufferedInputStream(new FileInputStream("fileperso")))) {
       Groupe g1 = (Groupe) in.readObject();
       for (Personnel p1 : g1.getListPerso()) {
         System.out.println(p1.getNom());
@@ -104,7 +100,7 @@ public class AppTest {
     DAOFactory dao = new DAOFactory();
     DAO daogroupe = new DAOGroupe();
     Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
-    Groupe g= new Groupe();
+    Groupe g = new Groupe();
     daogroupe.create(g);
     Groupe g1 = (Groupe) daogroupe.find("personnel");
     assertNotNull(g1.getListGroup());
