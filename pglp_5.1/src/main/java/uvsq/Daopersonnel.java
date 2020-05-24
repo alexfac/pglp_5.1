@@ -1,8 +1,8 @@
-package uvsq21603110;
+package uvsq;
 
 import java.io.*;
 
-public class DAOpersonnel implements DAO<Personnel> {
+public class Daopersonnel implements Dao<Personnel> {
   @Override
   public Personnel create(Personnel obj) {
     try (ObjectOutputStream out =

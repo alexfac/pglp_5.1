@@ -1,8 +1,8 @@
-package uvsq21603110;
+package uvsq;
 
 import java.sql.Connection;
 
-public interface DAO<T> {
+public interface Dao<T> {
 
   Connection connect = null;
 

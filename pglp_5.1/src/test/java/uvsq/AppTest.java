@@ -1,10 +1,9 @@
-package uvsq21603110;
+package uvsq;
 
 import org.junit.Test;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -86,8 +85,8 @@ public class AppTest {
   @Test
   public void testDAOpersonnel() {
 
-    DAOFactory dao = new DAOFactory();
-    DAO daopersonnel = new DAOpersonnel();
+    DaoFactory dao = new DaoFactory();
+    Dao daopersonnel = new Daopersonnel();
     Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
     daopersonnel.create(p);
     Personnel p1 = (Personnel) daopersonnel.find("personnel");
@@ -97,8 +96,8 @@ public class AppTest {
   @Test
   public void testDAOgroupe() {
 
-    DAOFactory dao = new DAOFactory();
-    DAO daogroupe = new DAOGroupe();
+    DaoFactory dao = new DaoFactory();
+    Dao daogroupe = new DaoGroupe();
     Personnel p = new Personnel.Builder("Test", "Test", "Testeur").build();
     Groupe g = new Groupe();
     daogroupe.create(g);
